@@ -1,5 +1,62 @@
 ## Website Performance Optimization portfolio project
 
+
+To run this example:
+Open both index.html and views/pizza.html
+
+
+
+
+My Optimizations and Changes:
+
+
+index.html
+I created an optimized version of views/images/pizzeria.jpg to use as a thumbnail
+I embedded the CSS directly into the page and I made the call to google analytics an async call.
+
+
+views/pizza.html
+I embedded the CSS directly into the page instead of loading an additional file from the server.
+
+
+views/js/main.js
+
+moved var pizzasDiv = document.getElementById("randomPizzas"); outside of the for loop
+
+In the updatePositions function:
+I moved the calculation of document.body.scrolltop out of the loop
+I replaced querySelectorAll with getElementByClassName
+I stored the length of the array in a variable so the array wasn't accessed each time to determine the length.
+I declared the variable phase outside of the loop
+
+In function determineDx:
+replaced document.querySelector("#randomPizzas") with the getElementByID call
+
+in function changePizzaSizes:
+I stored the length of the pizza container array in a variable
+I used the getElementByClassName call instead of querySelectorAll
+I moved the calculation of dx and newwidth outside of the array and based them on the first element of the array (since they are all the same size)
+
+
+in document.addEventListener('DOMContentLoaded', function() {:
+I dynamically determined how many rows there are (rounding up for partial rows) and only created that many pizzas.
+I moved the elem variable declaration outside the loop.
+I created a local variable instead of calling getElementById in each iteration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository, inspect the code,
